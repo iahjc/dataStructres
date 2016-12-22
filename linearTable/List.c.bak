@@ -1,5 +1,16 @@
 #include "List.h"
 
+
+//给结构取一个别名List
+typedef struct 
+{
+	ElementType Data[MAXSIZE];
+	int Last;
+}List;
+
+//声明list
+List L,*Ptrl;
+
 /**
 *申请一块空间
 */
