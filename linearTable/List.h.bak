@@ -1,12 +1,18 @@
 #include <stdio.h>
-
-
-#ifndef _List_H
-
-#define _List_H 
+#include <malloc.h>
 
 #define MAXSIZE 100
-typedef char ElementType
+typedef char ElementType;
+
+//给结构取一个别名List
+typedef struct  
+{
+	ElementType Data[MAXSIZE];
+	int Last;
+}List;
+
+//比如 访问下标为I的元素：L.Data[i]或者Ptrl->Data[i]
+
 
 //申请一块空间	
 List *MakeEmpty();
@@ -23,17 +29,5 @@ int Length(List L);
 //显示列表里面的数据
 void ShowStr(List *Ptrl);
 
-#endif
 
 
-//给结构取一个别名List
-typedef struct 
-{
-	ElementType Data[MAXSIZE];
-	int Last;
-}List;
-
-//声明list
-List L,*Ptrl;
-
-//比如 访问下标为I的元素：L.Data[i]或者Ptrl->Data[i]
