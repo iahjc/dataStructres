@@ -39,9 +39,7 @@ void Delete(ElementType X,List *L){
 	List *nextNode;
 	nextNode = L;
 	List *previousNode;
-	//loop the linked list table ,find delete node X position,
-	//the find node X next node points delete node X previous node 
-	//and the delete node X free 
+	//loop the linked list table ,find delete node X position,the find node X next node points delete node X previous node and the delete node X free 
 	while(nextNode->Next != NULL && nextNode->Data != X){ //if current node "Next" not NULL and current node "Data" not X then loop or jump loop struct
 		prevousNode = nextNode;
 		nextNode = nextNode->Next;

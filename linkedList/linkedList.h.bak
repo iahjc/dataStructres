@@ -24,7 +24,7 @@ int IsLast(Position *P,List *L);
 Position Find(ElementType X,List L);
 
 //in the linked list table delete node X 
-void Delete(ElementType X,List *L);
+void Delete(ElementType X,List L);
 
 
 //where elementType node are linked list table 
