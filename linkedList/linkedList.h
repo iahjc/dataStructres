@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
+#include <time.h>
+
 
 #ifndef _List_H
 
@@ -11,6 +13,18 @@
 
 typedef int ElemType;
 
+
+
+
+typedef struct Node
+{
+	ElemType data; //data fields
+	struct Node* Next; //pointer fields
+}Node;
+
+
+typedef struct Node* LinkList;
+
 //get listed list node
 Status GetElem(LinkList L,int i,ElemType *e);
 
@@ -18,7 +32,7 @@ Status GetElem(LinkList L,int i,ElemType *e);
 Status ListInsert(LinkList *L,int i,ElemType e);
 
 //delete element;
-Status ListDelete(LinkList *L,int i,ElemType *e);
+Status ListDelete(LinkList *L,int i,ElemType e);
 
 //insert head node prevout
 void CreateListHead(LinkList *L,int n);
@@ -30,14 +44,13 @@ void CreateListTail(LinkList *L,int n);
 //clear linklist 
 Status ClearList(LinkList *L);
 
+//print all data
+void showAllData(LinkList *L);
+
+
 #endif 
 
-typedef struct Node
-{
-	ElemType data; //data fields
-	struct Node* Next; //pointer fields
-}Node;
 
-typedef struct Node* LinkList;
+
 
 
