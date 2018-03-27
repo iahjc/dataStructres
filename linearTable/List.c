@@ -3,11 +3,11 @@
 
 
 /**
-*ÉêÇëÒ»¿é¿Õ¼ä
+* ç”³è¯·ä¸€å—ç©ºé—´
 */
 List* MakeEmpty(){
-	List *Ptrl; //ÉùÃ÷
-	Ptrl = (List *)malloc(sizeof(List)); //¿ª±Ù¿Õ¼ä
+	List *Ptrl; // å£°æ˜
+	Ptrl = (List *)malloc(sizeof(List)); // å¼€è¾Ÿç©ºé—´
 	Ptrl->Last = -1;
 	return Ptrl;
 }
@@ -15,14 +15,14 @@ List* MakeEmpty(){
 
 
 /**
-*ÔÚÏßĞÔ±íLÖĞ²éÕÒXµÄµÚÒ»´Î³öÏÖÎ»ÖÃ¡£
+*åœ¨çº¿æ€§åˆ—è¡¨Lä¸­æŸ¥æ‰¾xç¬¬ä¸€æ¬¡å‡ºç°çš„ä½ç½®
 */
 int Find(ElementType X,List *Ptrl){
 	int i = 0;
 	while(i <= Ptrl->Last && X != Ptrl->Data[i])i++;
 
 	if(i > Ptrl->Last){
-		printf("Ã»ÓĞÕÒµ½ÔªËØXµÚÒ»´Î³öÏÖµÄÎ»ÖÃ!");
+		printf("The position of the element X not found");
 		return -1;
 	}else{
 		return i;
@@ -31,24 +31,24 @@ int Find(ElementType X,List *Ptrl){
 
 
 /*
-*ÔÚÎ»ĞòiÇ°²åÈëÒ»¸öĞÂÔªËØ
-*iÊÇ´Ó1¿ªÊ¼µÄ
+*åœ¨ä½åºiå‰æ’å…¥ä¸€ä¸ªæ–°å…ƒç´ 
+*iæ˜¯ä»1å¼€å§‹çš„
 */
 void Insert(ElementType X,int i,List *Ptrl){
-	//ÅĞ¶Ï±íÊÇ·ñÂúÁË
+	// åˆ¤æ–­æ˜¯å¦è¡¨æ»¡äº†
 	if(Ptrl->Last+1 > MAXSIZE){
-		printf("¸Ä±íÒÑ´ïµ½×î´óÏŞ¶È£¬²»ÄÜÌí¼ÓĞÂÔªËØ");
+		printf("the maximum of the table is full! not add new element!");
 		return;
 	}
 	
 
-	//ÅĞ¶Ï²åÈëµÄÎ»ÖÃÊÇ·ñºÏ·¨
+	//åˆ¤æ–­æ’å…¥çš„ä½ç½®æ˜¯å¦åˆæ³•
 	if(i>Ptrl->Last+2 || i < 1){
-		printf("²åÈëµÄÎ»ÖÃ²»ºÏ·¨£¬ÇëÖØĞÂÑ¡ÔñÎ»Ğò");
+		printf("the position of inserting is wrongful! ");
 		return;
 	}
 
-	//ÕÒµ½µÚi¸öÎ»ÖÃ  µÚi¸öÎ»ÖÃºóËùÓĞµÄÔªËØÍùºóÅ²ÒÆÒ»¸ö
+	//æ‰¾åˆ°ç¬¬iä¸ªä½ç½® ç¬¬iä¸ªä½ç½®åæ‰€æœ‰çš„å…ƒç´ å¾€åæŒªç§»ä¸€ä½
 
 	for(int k = Ptrl->Last; k>= i -1;  k--){
 		Ptrl->Data[k+1] = Ptrl->Data[k];
@@ -62,38 +62,37 @@ void Insert(ElementType X,int i,List *Ptrl){
 
 
 /*
-*É¾³ıÖ¸¶¨Î»ÖÃiµÄÔªËØ
+*åˆ é™¤æŒ‡å®šä½ç½®içš„å…ƒç´ 
 */
 void Delete(int i,List *Ptrl){
-	//²é¿´É¾³ıÎ»ÖÃÊÇ·ñºÏ·¨
+	//æŸ¥çœ‹åˆ é™¤ä½ç½®æ˜¯å¦åˆæ³•
 	if(i > Ptrl->Last+1 || i < 1){
-		printf("É¾³ıµÄÎ»ÖÃ²»ºÏ·¨£¬ÇëÖØĞÂÑ¡ÔñÉ¾³ıÎ»ÖÃ");
+		printf("the position of the deleted is wrongfulï¼ please reselect the deleting locationï¼");
 		return;
 	}
 
-	//ÕÒµ½µÚi¸öÔªËØ£¬µÚi¸öÔªËØÖ®ºóµÄÔªËØ¶¼ÍùÇ°Å²ÒÆÒ»Î»
+	//æ‰¾åˆ°ç¬¬iä¸ªå…ƒç´ ï¼Œç¬¬iä¸ªå…ƒç´ ä¹‹åçš„å…ƒç´ éƒ½å¾€å‰æŒªç§»ä¸€ä½ã€‚
 
 	for(int k = i ; k <= Ptrl->Last; k++){
 		Ptrl->Data[k-1] = Ptrl->Data[k];
 	}
 
-	//lastÖµ-1
+	// last value minus 1
 	Ptrl->Last--;
 	return;
 }
 
 /*
-*ÏÔÊ¾ÁĞ±íÀïÃæµÄÊı¾İ
+* æ˜¾ç¤ºåˆ—è¡¨é‡Œé¢çš„æ•°æ®
 */
 void ShowStr(List *Ptrl){
 
 	if(Ptrl->Last < 0){
-		printf("¸Ã±íÎª¿Õ±í£¬Ã»ÓĞÊı¾İ!");
+		printf("the table is null, no data!");
 		return;
 	}
 	
 	for(int i = 0; i<= Ptrl->Last; i++){
-		//printf("%d",i);
 		printf("%c",Ptrl->Data[i]);
 	}
 	printf("\n");

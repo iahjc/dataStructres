@@ -4,27 +4,27 @@
 #define MAXSIZE 100
 typedef char ElementType;
 
-//¸ø½á¹¹È¡Ò»¸ö±ğÃûList
+// ç»™ç»“æ„å–ä¸€ä¸ªåˆ«å
 typedef struct  
 {
 	ElementType Data[MAXSIZE];
 	int Last;
 }List;
 
-//±ÈÈç ·ÃÎÊÏÂ±êÎªIµÄÔªËØ£ºL.Data[i]»òÕßPtrl->Data[i]
+//æ¯”å¦‚ è®¿é—®ä¸‹æ ‡ä¸ºIçš„å…ƒç´ ï¼š L.Data[i]æˆ–è€…Ptrl->Data[i]
 
 
-//ÉêÇëÒ»¿é¿Õ¼ä	
+//ç”³è¯·ä¸€å—ç©ºé—´
 List *MakeEmpty();
-//ÔÚÏßĞÔ±íLÖĞ²éÕÒXµÄµÚÒ»´Î³öÏÖÎ»ÖÃ¡£
+//åœ¨çº¿æ€§è¡¨Lä¸­æŸ¥æ‰¾Xçš„ç¬¬ä¸€æ¬¡å‡ºç°çš„ä½ç½®
 int Find(ElementType X,List *Ptrl);
-//ÔÚÎ»ĞòiÇ°²åÈëÒ»¸öĞÂÔªËØ
+//åœ¨ä½åºiå‰æ’å…¥ä¸€ä¸ªæ–°å…ƒç´ 
 void Insert(ElementType X,int i,List *Ptrl);
-//É¾³ıÖ¸¶¨Î»ÖÃiµÄÔªËØ
+//åˆ é™¤æŒ‡å®šä½ç½®içš„å…ƒç´ 
 void Delete(int i,List *Ptrl);
-//·µ»ØÏßĞÔ±íLµÄ³¤¶È
+//è¿”å›çº¿æ€§åˆ—è¡¨Lçš„é•¿åº¦
 int Length(List L);
-//ÏÔÊ¾ÁĞ±íÀïÃæµÄÊı¾İ
+//æ˜¾ç¤ºåˆ—è¡¨é‡Œé¢çš„æ•°æ®
 void ShowStr(List *Ptrl);
 
 
